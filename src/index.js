@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
 import About from './pages/About';
+import Contacto from './pages/Contacto';
 
 import {
   createBrowserRouter,
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     path: "/Home",
     element: <Home/>,
   },  
+  {
+    path: "/Contacto",
+    element: <Contacto/>,
+  },    
   {
     path: "/About",
     element: <About/>,
