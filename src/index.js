@@ -11,23 +11,28 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement:<NotFound/>
   },
   {
     path: "/Home",
     element: <Home/>,
+    errorElement:<NotFound/>
   },  
   {
     path: "/Contacto",
     element: <Contacto/>,
+    errorElement:<NotFound/>
   },    
   {
     path: "/About",
     element: <About/>,
+    errorElement:<NotFound/>
   },  
 ]);
 
