@@ -39,13 +39,28 @@ const SelectPaises = () => {
     const [paises, setPaises] = useState([]);
     const [departamentos, setDepartamentos] = useState([]);
     const [provincias, setProvincias] = useState([]);
-    const [actualPais, setActualPais] = useState([]);
-    const [actualDep, setActualDep] = useState([]);
-    const [actualProv, setActualProv] = useState([]);
+    const [actualPais, setActualPais] = useState('');
+    const [actualDep, setActualDep] = useState('');
+    const [actualProv, setActualProv] = useState('');
 
     useEffect( () => {
         setPaises(dataPaises);
     }, []);
+
+    
+
+    useEffect( () => {        
+        const depsPorPais = dataDepartamentos.filter( (dep) => {
+            return dep.idPais == actualPais;
+        });    
+        setDepartamentos(depsPorPais);    
+    }, [actualPais]);
+    
+    const onSelectPaisV2 = (event) => {
+        event.preventDefault();        
+        setActualPais(event.target.value);   
+    }
+
 
     const onSelectPais = (event) => {
         event.preventDefault();        
@@ -83,10 +98,12 @@ const SelectPaises = () => {
         console.log('Prov:', actualProv);
     }
 
+    
+
     return (
         <div>
             <h2>Select Ejemplo</h2>
-            <select id='paises' name='paises' onChange={onSelectPais}>
+            <select id='paises' name='paises' onChange={onSelectPaisV2}>
                 <option >Seleccione País</option>
                 {
                     paises.map( (pais) => {
