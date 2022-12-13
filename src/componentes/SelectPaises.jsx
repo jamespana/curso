@@ -52,7 +52,11 @@ const SelectPaises = () => {
         const depsPorPais = dataDepartamentos.filter( (dep) => {
             return dep.idPais == event.target.value;
         });
+        const provPorDepatamento = dataProvincias.filter( (prov) => {
+            return prov.idDepartamento == 0;
+        });        
         setDepartamentos(depsPorPais);        
+        setProvincias(provPorDepatamento);
         setActualPais(event.target.selectedOptions[0].text);
         
     }
