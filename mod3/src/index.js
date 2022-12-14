@@ -5,11 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './Pages.jsx/Home';
 import About from './Pages.jsx/About';
+import { Provider } from 'react-redux';
+import { persistor, store } from './Pages.jsx/Redux/store';
+import Information from './Pages.jsx/Information';
+
+
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 const router = createBrowserRouter([
@@ -25,6 +31,10 @@ const router = createBrowserRouter([
     path: "/About",
     element: <About/>,
   },  
+  {
+    path: "/Information",
+    element: <Information/>,
+  },    
 ]);
 
 
@@ -32,7 +42,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+            <RouterProvider router={router} />
+        </PersistGate>
+      </Provider>    
   </React.StrictMode>
 );
 

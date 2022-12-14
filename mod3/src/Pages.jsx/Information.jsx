@@ -1,24 +1,22 @@
 import { useEffect } from "react";
 import Navegador from "../Componentes.jsx/Navegador";
 import { useDispatch } from "react-redux";
-import { setSaveUserLoger } from "./Redux/action";
-import { SAVE_USER } from "./Redux/type";
+import { setSaveInformation } from "./Redux/action";
 
 
-const Home = () => {
+const Information = () => {
     const dispatch = useDispatch();
 
     useEffect( () => {
-        //dispatch( {type: SAVE_USER, payload: "Jorge ... E."} );
-        dispatch(setSaveUserLoger("Jorge"));
+        dispatch(setSaveInformation("DSSM - Talca"));
     }, []);
 
     return (
         <div>
             <Navegador/>
-            <h2> Home</h2>
+            <h2> Información</h2>
         </div>
     )
 }
 
-export default Home;
+export default Information;

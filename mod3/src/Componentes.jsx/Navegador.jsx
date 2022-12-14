@@ -16,6 +16,9 @@ const Navegador = () => {
                     <Link to={'/About'}>
                         <Button color="inherit">Logout</Button>
                     </Link>
+                    <Link to={'/Information'}>
+                        <Button color="inherit">Informacion</Button>
+                    </Link>                    
                 </Toolbar>
             </AppBar>
         </div>
